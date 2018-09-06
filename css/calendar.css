@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+#capCalendar {
+	position: absolute;
+	border: 1px solid #344D73;
+	padding: 5px;
+	background-color: #FFF;
+	z-index: 99999;
+	padding-top: 0;
+}
+.dvCal {
+	position: static ! important;
+	float: left;	
+	border: 1px solid #7F9DB9 ! important;
+	padding-top: 5px ! important;
+}
+
+#capCalendar table {
+	width: auto;
+        margin-top: 0px;
+}
+#capCalendar table th {
+    background-color: #2B65A1;
+    color: #FFF;
+}
+#capCalendar .calTitle {
+	background-color: #7191C4;
+	height: 20px;
+	margin: 0 -5px 5px -5px;
+	border-bottom: 1px solid #344D73;
+}
+#capCalendar .calTitle a {
+	display: block;
+	float: right;
+	width: 14px;
+	height:14px;
+	background-image: url(../imgs/macclose.gif);
+	margin-right: 5px;
+	margin-top: 2px;
+}
+#capCalendar .calTitle a:hover {
+	background-image: url(../imgs/macclose-over.gif);
+}
+#capCalendar th {
+	padding: 3px 4px;
+	text-align: center;
+}
+#capCalendar td {
+	padding: 0; 
+}
+#capCalendar td a {
+	display: block;
+	padding: 2px 4px;
+	text-align: center;
+}
+#capCalendar td a:hover {
+	background-color: #6B8CAC;
+	color: #F0F4F7;
+}
+#capCalendar td.selected {
+	background-color: #BCBAD4;	
+}
+#capCalendar td.current {
+	background-color: #000;
+}
+#capCalendar td.void {
+	background-color: #F7F7F7;
+}
+#capCalendar td.monday {
+	/*background-color: #F74352;*/
+}
+#capCalendar td.monday a {
+	color: #F74352;	
+}
+#capCalendar td.current a {
+	color: #F0F4F7;	
+}
+#capCalendar td.monday:hover a {
+	color: #F0F4F7;	
+}
+
+#capCalendar div {
+
+}
+#capCalendar .calTop {
+	margin-bottom: 5px;
+	width: 100%;
+	float: left;
+}
+#capCalendar .divMes {
+	width: 109px;
+	float: left;
+	margin-right: 5px;
+}
+#capCalendar .divMes select {
+	width: 109px;
+        margin-left: 0px;
+}
+#capCalendar .divAno {
+	width: 58px;
+	float: left;
+}
+#capCalendar .divAno input {
+	width: 35px;	
+	float: left;
+        margin-left: 0px;
+}
+#capCalendar .divAno span {
+	display: block;
+	float: left;
+	width: 15px;
+	height: 19px;
+	margin-left: 2px;
+
+}
+#capCalendar .divAno span a {
+	display: block;
+	width: 15px;
+	height: 9px;
+}
+#capCalendar .divAno span a.lnkUp {
+	background-image: url(../imgs/top.gif);
+	margin-bottom: 1px;	
+}
+#capCalendar .divAno span a.lnkUp:hover {
+	background-image: url(../imgs/top-over.gif);
+}
+#capCalendar .divAno span a.lnkDown {
+	background-image: url(../imgs/bottom.gif);
+}
+#capCalendar .divAno span a.lnkDown:hover {
+	background-image: url(../imgs/bottom-over.gif);
+}
+#divCal {
+	width: 100%;
+	float: left;
+}
