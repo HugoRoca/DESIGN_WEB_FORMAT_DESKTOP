@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/calendar.css" />
+    <script type="text/javascript" src="js/calendar.js"></script>
+    <script type="text/javascript" src="rpc/rpc.jsp"></script>
+    <script type="text/javascript" src="js/default.js"></script>
+    <script type="text/javascript" src="js/commons.js"></script>
+    <script type="text/javascript" language="javascript" src="js/colorPicker.js"></script>
+    <link rel="stylesheet" type="text/css"  href="css/colorPicker.css"/>
+    <script src="js/basics.js"></script>
+    <script src="js/ajax.js"></script>
+</head>
+<body>
+    <!-- Loader Page -->
+    <div id="shadow" style="display: none;"></div>
+    <div id="divLoading" style="display: none;">
+        <img src="imgs/it-logo.jpg" />
+        <h1>Titulo</h1>
+        <p>Iniciando sesión...</p>
+    </div>
+    <!-- Fin de Loader Page -->
+    <section id="confirmCap">
+        <h2><span>Cuadro de Confirmación</span></h2>
+        <dialog>
+            <div>
+                <img src="imgs/question.png" alt="Confirmación" />
+                <div id="cSay"></div>
+                <p>
+                    <button onclick="">Si</button>
+                    <button onclick="closeCap('confirmCap')">No</button>
+                </p>
+            </div>
+        </dialog>
+    </section>
+    <!-- Confirm Cap -->
+    <section id="alertCap">
+        <h2><span>Advertencia</span></h2>
+        <dialog>
+            <div>
+                <img src="imgs/notification.png" alt="Confirmación" />
+                <div id="aSay"></div>
+                <p>
+                    <button onclick="cAlert.close();">Aceptar</button>
+                </p>
+            </div>
+        </dialog>
+    </section>
+    <!-- Fin de Confirm Cap -->
+
+
+    <!--div id="divLogin">
+        <div class="title">INICIO DE SESIÓN</div>
+        <form name="frmLogin" method="post" action="./" onsubmit="return valLogin();">
+            <div class="cntForm">
+            <label>
+                <span>Usuario:</span>
+                <input id="txtUser" name="txtUser" value="" onkeyup="if (event.keyCode == 13) login(this.id); verPass(event);" onblur="loadEmps(this.value); get('verClave').style.color='white';" />
+            </label>
+            <label>
+                <span>Contraseña:</span>
+                <input id="txtPass" name="txtPass" type="password" onkeyup="if (event.keyCode == 13) login(this.id);" />
+            </label>
+            <label>
+                <span>Empresa:</span>
+                <select id="selCompany" name="selCompany" onkeyup="if (event.keyCode == 13) login(this.id);">
+                </select>
+            </label>
+            <label>
+                <span>T. Cambio:</span>
+                <input id="txtRate" name="txtRate" class="small decimal3" value="" onkeyup="if (event.keyCode == 13) login();" onkeydown="decimales(event);" onblur="fixDecimales(event);" />
+            </label>
+            <p>
+                <button type="button" onclick="login();">Ingresar</button>
+            </p>
+            </div>
+        </form>
+    </div-->
+
+    <nav id="navMenu">
+
+        <span id="menu1">module.getModule()</span>
+
+        <form name="frmLogout" method="post" action="./" >
+            <input type="hidden" name="logout" />
+            <span id="menucs" onclick="document.frmLogout.submit();">Cerrar sesión</span>
+        </form>
+    </nav>
+
+    <blockquote>
+        <ul id="module125">
+            <li>
+                <a href="JavaScript:;" onclick="showPrgSystem('0','Sistemas - Modulos','prog.png');">
+                    <img alt="prog" src="imgs/icons/prog.png"/>
+                    sistema
+                </a>
+            </li>
+            <li>
+                <a href="JavaScript:;" onclick="showPrgSystem('19','Programas','prog.png');">
+                    <img alt="prog" src="imgs/icons/prog.png"/>
+                    Programas
+                </a>
+            </li>
+            <li>
+                <a href="JavaScript:;" onclick="showPrgSystem('20','Programas','prog.png');">
+                    <img alt="prog" src="imgs/icons/prog.png"/>
+                    Implementacion
+                </a>
+            </li>
+        </ul>
+
+        <ul id="module1">
+            <li>
+                <a href="JavaScript:;" onclick="showProgram('frmAdelCli','Adelanto cliente','add.png')">
+                    <img alt="program.getProgram()" src="imgs/icons/add.png" />
+                    program.getProgram()
+                </a>
+            </li>
+            <li>
+                <a href="JavaScript:;" onclick="showProgram('frmTest','Probando formulario','vendedor.png')">
+                    <img alt="program.getProgram()" src="imgs/icons/vendedor.png" />
+                    program.getProgram()
+                </a>
+            </li>
+            <li>
+                <a href="JavaScript:;" onclick="">
+                    <img alt="program.getProgram()" src="imgs/icons/time_prod.png" />
+                    program.getProgram()
+                </a>
+            </li>
+        </ul>
+    </blockquote>
+
+    <div id="barTop"></div>
+    <div id="lineTop"></div>
+    <section id="win" style="top: 100px; left: 50px; visibility: hidden;">
+        <h2>
+            <span>
+                <img src="imgs/icons/users.png" />
+                Tallas
+            </span>
+
+            <a onclick="removeElement(this.parentNode.parentNode);" title="Cerrar" class="butt-close" href="JavaScript:;"></a>
+            <a onclick="minRestCap(this.parentNode.parentNode, this);" title="Minimizar" class="butt-mm" href="JavaScript:;"></a>
+        </h2>
+        <article>
+            <div>
+                <img alt="Información" src="imgs/information.png" />
+                <span>Nuevo</span>
+            </div>
+            <dialog>
+                <form onsubmit="return false">
+                    <%@ include file="forms/includes.jsp" %>
+
+                </form>
+            </dialog>
+        </article>
+    </section>
+    <!-- Valores actuales -->
+    <input type="hidden" id="hidCurrentUser" value="%= current.user %" />
+    <input type="hidden" id="hidCurrentProfile" value="%= current.profile %" />
+    <input type="hidden" id="hidCurrentCompany" value="%= current.company %" />
+    <input type="hidden" id="hidCurrentDate" value="%= new JDate().getDate() %" />
+    <input type="hidden" id="hidCurrentTC" value="%= new MngTiposCambio().getRate() %" />
+    <input type="hidden" id="hidCurrentSist" value="%= mngSist.getSistAct() %" />            
+    <input type="hidden" id="hidCurrentListEmp" value="%= current.listPre " />
+    <input type="hidden" id="hidCurrentSerEmp" value="%= current.serEmp %" />
+    <input type="hidden" id="hidCurrentSerUser" value="%= current.serUser %" />
+    <input type="hidden" id="hidCurrentNomPerf" value="%= current.nomPerf %" />
+    <input type="hidden" id="hidCurrentLimitEmp" value="" />
+    <input type="hidden" id="hidCurrentRutaSistCont" value="%= getServletContext().getRealPath" />
+    <!-- Fin de Valores actuales -->
+    <div id="loa" class="none"></div>
+    <div id="cont-applet">
+        <applet id="appletPrinter" code="printer.IdeasPrinter.class" archive="printer.jar" width="0" height="0"></applet>
+    </div>
+    <div style="padding: 10px 0; background-color: #0099FF; position: absolute; top: 100%; margin-top: -80px; width: 100%; height: 60px;">
+        <table cellpadding="0" cellspacing="0" width="100%" style="margin-top: 0;">
+            <tr>
+                <td style="background-color: transparent;">
+                <object id="FlashID3" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="50">
+                <param name="movie" value="imgs/letras.swf" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="transparent" />
+                <param name="swfversion" value="6.0.65.0" />
+                <!-- Esta etiqueta param indica a los usuarios de Flash Player 6.0 r65 o posterior que descarguen la versión más reciente de Flash Player. Elimínela si no desea que los usuarios vean el mensaje. -->
+                <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                <!-- La siguiente etiqueta object es para navegadores distintos de IE. Ocúltela a IE mediante IECC. -->
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="imgs/letras.swf" width="100%" height="50">
+                  <!--<![endif]-->
+                  <param name="quality" value="high" />
+                  <param name="wmode" value="transparent" />
+                  <param name="swfversion" value="6.0.65.0" />
+                  <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                  <!-- El navegador muestra el siguiente contenido alternativo para usuarios con Flash Player 6.0 o versiones anteriores. -->
+                  <div>
+                    <h4>El contenido de esta página requiere una versión más reciente de Adobe Flash Player.</h4>
+                    <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtener Adobe Flash Player" width="112" height="33" /></a></p>
+                  </div>
+                  <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+              </object>
+                </td>
+                <td style="width: 108px; background-color: transparent;">
+                    <a href="http://ideastech.pe" target="_blank" title="Ideastech">
+                        <img src="imgs/logo.jpg" alt="Ideastech" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
